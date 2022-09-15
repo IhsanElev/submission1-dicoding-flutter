@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:readmore/readmore.dart';
 import 'package:restaurant_app/model/restauran.dart';
+import 'package:restaurant_app/util/layout_size.dart';
 
 class DetailPage extends StatelessWidget {
   final RestaurantElement resto;
@@ -15,43 +16,19 @@ class DetailPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Stack(
-            //   children: [
-            //     Hero(
-            //       tag: resto.pictureId,
-            //       child: Image.network(resto.pictureId),
-            //     ),
-            //     SafeArea(
-            //       child: Row(
-            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //         children: [
-            //           IconButton(
-            //             icon: const Icon(
-            //               Icons.arrow_back,
-            //               color: Colors.white,
-            //             ),
-            //             onPressed: () {
-            //               Navigator.pop(context);
-            //             },
-            //           )
-            //         ],
-            //       ),
-            //     ),
-            //   ],
-            // ),
             Container(
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      Text(
-                        resto.name,
-                        style: Theme.of(context).textTheme.headline6,
+                      Expanded(
+                        child: Text(
+                          resto.name,
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
                       ),
-                      const SizedBox(
-                        width: 8,
-                      ),
+                     
                       RatingBarIndicator(
                         rating: rating,
                         itemBuilder: (context, index) => const Icon(
@@ -60,7 +37,7 @@ class DetailPage extends StatelessWidget {
                         ),
                         itemCount: 5,
                         direction: Axis.horizontal,
-                        itemSize: 20,
+                        itemSize: AppLayout.getHeight(15),
                       ),
                     ],
                   ),
@@ -77,7 +54,7 @@ class DetailPage extends StatelessWidget {
                         ),
                         Text(
                           resto.city,
-                          style: Theme.of(context).textTheme.subtitle1,
+                          style: Theme.of(context).textTheme.subtitle2,
                         ),
                       ],
                     ),

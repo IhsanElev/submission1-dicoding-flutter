@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       
       initialRoute: SplashScreen.routeName,
       routes: {
-        SplashScreen.routeName:((context) => const SplashScreen()),
+        SplashScreen.routeName:((context) => const SplashScreen())  ,
         RestaurantListPage.routeName: (context) => const RestaurantListPage(),
         DetailPage.routeName :(context) => DetailPage(resto:
                     ModalRoute.of(context)?.settings.arguments as dynamic,)
